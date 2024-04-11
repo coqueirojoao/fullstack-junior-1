@@ -1,7 +1,7 @@
 import { poppins } from "@/app/fonts";
 import Container from "../container";
 import Arrow from '@/assets/Arrow.svg';
-import content from '@/assets/content.svg';
+import content from '@/assets/content.png';
 import Image from "next/image";
 import Button from "../button";
 import IconServices from "../iconServices";
