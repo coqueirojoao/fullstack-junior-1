@@ -25,6 +25,8 @@ function handler(
         .status(HttpStatus.BAD_REQUEST)
         .json({ message: error.message });
     }
+  } else {
+    return res.status(HttpStatus.BAD_REQUEST).json({ message: "Method not allowed" });
   }
 }
 

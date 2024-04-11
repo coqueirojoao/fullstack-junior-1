@@ -23,6 +23,8 @@ function handler(req: NextApiRequest, res: NextApiResponse) {
         .status(HttpStatus.BAD_REQUEST)
         .json({ message: error.message });
     }
+  } else {
+    return res.status(HttpStatus.BAD_REQUEST).json({ message: "Method not allowed" });
   }
 }
 
