@@ -1,5 +1,5 @@
 import { poppins } from "@/app/fonts";
-import { navBarLinks } from "@/utils/navBarLinks";
+import { navBarLinks } from "@/components/header/utils/navBarLinks";
 import Menu from '@/assets/Menu.svg';
 import Image from "next/image";
 

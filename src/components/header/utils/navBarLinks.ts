@@ -1,4 +1,4 @@
-import INavBarLinks from "@/interfaces/INavBarLinks";
+import INavBarLinks from "@/components/header/interfaces/INavBarLinks";
 
 export const navBarLinks: INavBarLinks[] = [
     {
