@@ -4,12 +4,25 @@ import Arrow from '@/assets/Arrow.svg';
 import content from '@/assets/content.svg';
 import Image from "next/image";
 import Button from "../button";
+import IconServices from "../iconServices";
+import { iconServiceContent } from "../iconServices/utils/iconServiceContent";
 
 export default function Hero() {
+
+    const getIconServiceContent = () => {
+        return iconServiceContent.map((content) => {
+            return (
+                <IconServices key={content.title} icon={content.icon}>
+                    {content.title}
+                </IconServices>
+            )
+        })
+    }
+
     return(
         <main>
             <Container>
-                <div className="mt-5 flex w-full">
+                <div className="flex w-full">
                     <div className="mt-9 mr-5">
                     <h1 className="w-[350px] h-[100px] text-4xl text-white font-bold">
                         Build your best community starting from here.
@@ -24,6 +37,9 @@ export default function Hero() {
                     <Button type="secondary" icon={Arrow}>
                         Learn More
                     </Button>
+                    </div>
+                    <div className="flex gap-5 mt-16 mb-10">
+                        { getIconServiceContent() }
                     </div>
                     </div>
                     <div>

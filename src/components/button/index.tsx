@@ -4,7 +4,7 @@ import Image from "next/image";
 type ButtonProps = {
   children: React.ReactNode;
   type: string;
-  icon?: any;
+  icon?: string;
 };
 
 
@@ -23,7 +23,7 @@ export default function Button({ children, type, icon }: ButtonProps) {
         return (
             <button className={`${poppins.className} text-white text-[9px] font-semibold underline underline-offset-1 flex items-center gap-1` }>
                 {children}
-                <Image src={icon} alt="Arrow" className="w-5" />
+                <Image src={icon ?? ""} alt="Arrow" className="w-5" />
             </button>
         )
     }
