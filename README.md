@@ -1,75 +1,234 @@
-# Desafio Técnico - Full Stack Junior
+# 🚀 Desafio Técnico - Full Stack Junior
 
-## Objetivos do desafio
+## 📋 Descrição
+Projeto realizado para fins de teste e aprendizado, focando na proposta elaborada pelo README do processo seletivo da Naranja Labs.
 
-Este desafio irá verificar se o candidato possuí as seguintes habilidades em um nível básico:
+O projeto contém uma landing page feita com base no Figma proposto pelo processo seletivo, além de também ter endpoints para consulta via API.
 
-- Noções de Nextjs
-- Noções de Tailwind
-- Noções de Backend
-- Git e Github
+## 👌 Exemplos da Aplicação
 
-## O que deverá ser desenvolvido
+### Tela Principal:
 
-- O candidato deverá escolher e desenvolver uma das heros sections dentro deste figma: https://encurtador.com.br/buzKZ
-- O candidato deverá desenvolver uma rota backend utilizando Nextjs
-- Tanto o front-end quanto o back-end devem ser feitos no mesmo projeto do Nextjs
+![Tela Principal](image.png)
 
-## Requisitos técnico
+![Tela Mobile](mobilepage.png)
 
-- O projeto foi criado utilizando o Nextjs
-- Foi configurado tailwind
-- ### Frontend
-  - A rota / exibe um hero, de acordo com o design escolhido, com pixel perfect
-- ### Backend
+## 🛠️ Tecnologias Utilizadas
 
-  - Todas as rotas recebem um secret
-    - Caso o secret seja diferente de "naranja-labs", deverá retornar um erro com o melhor status code para essa situação.
-  - A rota /jobs retorna um json com todas as informações do arquivo jobs.ts (O local onde este arquivo esta localizado pode ser alterado de acordo com seu desejo)
-  - a rota /jobs?level=Junior deverá retornar apenas os jobs de level Junior
-  - a rota /job/[id] deverá ter o seguinte comportamento:
-    - Caso o id não exista no arquivo jobs.ts, deverá retornar um erro com um status code mais adequado para essa situação e uma messagem.
-    - Caso o id exista, deverá retornar apenas o job ao qual o id seja correspondente.
-  - a rota /job/submit deverá receber um body com a seguinte estrutura:
+- **Front-End**: Next.js 14.1.4
+- **Back-End**: Next.js 14.1.4 (API Routes)
+- **Testes**: Jest, Supertest (para testes de unidade da API) e Cypress (para testes E2E)
 
-    ```
+## ✨ Funcionalidades
+
+- Landing page do Front-End na rota "/"
+- Buscar empregos na rota "/api/jobs"
+- Buscar nível do emprego utilizando o query params "level" na rota "/api/jobs"
+- Buscar emprego por id na rota "/api/job/id"
+- Candidatar-se à vaga na rota "/api/job/submit"
+
+
+## 🔧 Instalação
+Para executar localmente o projeto, siga os seguintes passos no seu terminal:
+
+- Faça o clone do projeto na sua máquina
+
+```bash
+git clone git@github.com:coqueirojoao/fullstack-junior-1.git
+```
+
+- Acesse a pasta que foi clonada
+
+```bash
+cd fullstack-junior-1
+```
+
+- Instale todos os pacotes necessários para que o app funcione
+
+```bash
+npm install
+```
+
+- Execute o comando para inicializar a aplicação
+
+```bash
+npm run dev
+```
+
+- Acesse no seu navegador a url abaixo para visualizar o front-end 
+
+```
+http://localhost:3000
+```
+
+## 💡 Lidando com as requisições
+
+Para fazer as consultas para os endpoints, você deverá executar a sua aplicação, utilizando:
+
+```bash
+npm run dev
+```
+
+
+Após isso, crie um arquivo chamado " .env.local " na pasta raiz do seu projeto contendo as seguintes informações:
+
+```bash
+SECRET_KEY="naranja-labs"
+```
+
+Para todas as requisições, adicione nos headers da sua requisição a chave:
+
+```
+secret: "naranja-labs"
+```
+
+Você pode agora fazer as requisições para os seguintes endpoints:
+
+- /api/jobs
+- /api/job/{id}
+- /api/job/submit
+
+
+### /api/jobs
+
+Exemplo de retorno:
+
+```json
+[
     {
-      name: string,
-      age: number,
-      phone: string,
-      state:string,
-      city: string
-    }
-    ```
-
-    - Caso o body não seja enviado, deverá retornar um erro com o melhor status code para esse caso e uma mensagem
-    - Caso esteja tudo ok com o body, deverá retornar um json com a seguinte estrutura:
-
-    ```
+        "id": 1,
+        "job": "Full Stack Developer",
+        "level": "Junior",
+        "status": "open"
+    },
     {
-      message: Thank you for your
-      application, ${name}
+        "id": 2,
+        "job": "Frontend Developer",
+        "level": "Junior",
+        "status": "closed"
+    },
+    {
+        "id": 3,
+        "job": "Backend Developer",
+        "level": "Junior",
+        "status": "closed"
+    },
+    {
+        "id": 4,
+        "job": "Full Stack Developer",
+        "level": "Senior",
+        "status": "closed"
     }
-    ```
+]
+```
 
-## Como deverá ser feito o desenvolvimento e entrega
+### /api/jobs?level=Senior
 
-- Faça um fork desse repositório
-- No seu readme, inclua detalhes como:
-  - Nome completo
-  - Linkedin
-  - Github
-  - Telefone
-  - Email
-- Ao finalizar, envie o link do seu repositório para mateus@naranjalabs.dev
+Exemplo de retorno:
 
-## Dicas
+```json
+[
+    {
+        "id": 4,
+        "job": "Full Stack Developer",
+        "level": "Senior",
+        "status": "closed"
+    }
+]
+```
 
-- Atente-se a qualidade do seu código
-- Atente-se ao pixel perfect
-- Cuidado com commit bomba
-- Faça commits bem descritivos
+### /api/job/{id}
 
-## Observações
+Exemplo de retorno:
 
-- Após a data final de entrega, nenhum novo commit será considerado
+```json
+{
+    "id": 2,
+    "job": "Frontend Developer",
+    "level": "Junior",
+    "status": "closed"
+}
+```
+
+### /api/job/submit
+
+- Requisição do tipo POST
+
+Exemplo de corpo para a requisição:
+
+```json
+{
+    "name": "João",
+    "age": 29,
+    "phone": "77923444444",
+    "state": "Bahia",
+    "city": "Poções"
+}
+```
+
+Exemplo de retorno:
+
+```json
+{
+    "message": "Thank you for your application, João"
+}
+```
+
+## 📚 Swagger
+
+Caso prefira, você também pode utilizar o swagger para fazer as requisições e consultar a documentação da API
+
+![Swagger Documento](image-4.png)
+
+```
+https://app.swaggerhub.com/apis/JAAUMP95/naranja-labs_test/1.0.0
+```
+
+
+## ⚙️ Executando os testes
+
+Para executar os testes automatizados siga os seguintes passos:
+
+### 🧪 Testes unitários (Back-End)
+- Para executar o testes unitários, execute o seguinte comando no seu terminal:
+
+```bash
+npm run test
+```
+
+- Para obter a cobertura dos testes unitários, execute o seguinte:
+```bash
+npm run test:coverage
+```
+
+![Testes Unitários](image-1.png)
+
+### 🔩 Testes E2E (Front-End)
+
+- Para executar os testes de fim a fim, execute o seguinte comando no seu terminal:
+
+```bash
+npm run cypress:run
+```
+
+- Caso queira ter uma interface visual para os testes, execute:
+
+```bash
+npm run cypress:open
+```
+
+![E2E Testes](image-2.png)
+
+## 🧱 CI/CD
+
+Também foi feito CI/CD para o projeto, utilizando GitHub Actions para validar os testes e o Vercel para fazer o deploy.
+
+![CI/CD](image-3.png)
+
+- Endereço para o deploy:
+
+```
+https://naranja-labs-fullstack-test.vercel.app/
+```
+
+
