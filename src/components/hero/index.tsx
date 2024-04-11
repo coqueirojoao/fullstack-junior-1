@@ -42,7 +42,7 @@ export default function Hero() {
                         { getIconServiceContent() }
                     </div>
                     </div>
-                    <div className="mt-12 hidden xl:block">
+                    <div className="mt-12 hidden md:block">
                     <Image src={content} alt="Content" id="main-image" />
                     </div>
                     </div>
