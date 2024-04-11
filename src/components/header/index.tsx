@@ -19,7 +19,7 @@ export default function Header() {
      <header>
         <Container height="h-[60px]">
             <div className="flex w-full justify-between items-center">
-                <h1 className="text-2xl text-white">
+                <h1 className="text-2xl text-white" id="logo">
                     <span className="text-[#DB2A6B]">Gath</span>
                     Session
                     <span className="text-[#DB2A6B]">.

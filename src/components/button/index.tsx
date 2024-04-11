@@ -5,16 +5,17 @@ type ButtonProps = {
   children: React.ReactNode;
   type: string;
   icon?: string;
+  id?: string;
 };
 
 
 
-export default function Button({ children, type, icon }: ButtonProps) {
+export default function Button({ children, type, icon, id }: ButtonProps) {
 
     const renderButton = () => {
         if(type === "primary") {
             return (
-                <button className={`${poppins.className} py-2 px-8 bg-[#DB2A6B] text-white text-[9px] rounded-ss-lg rounded-se-lg rounded-ee-lg ` }>
+                <button className={`${poppins.className} py-2 px-8 bg-[#DB2A6B] text-white text-[9px] rounded-ss-lg rounded-se-lg rounded-ee-lg ` } id={id}>
                     {children}
                 </button>
             )
