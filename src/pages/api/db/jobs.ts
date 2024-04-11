@@ -1,4 +1,6 @@
-const jobs = [
+import Job from "../models/Job";
+
+export const jobs: Job[] = [
   {
     id: 1,
     job: 'Full Stack Developer',
