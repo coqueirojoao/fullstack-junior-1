@@ -9,7 +9,7 @@ export default function Header() {
     const getNavBarLinks = () => {
         return navBarLinks.map((link) => {
             return (
-                <li className={`list-none text-[8px] text-white font-light pb-[2px] cursor-pointer ${link.name === 'Home' && 'relative after:absolute after:bottom-[-2px] after:left-0 after:w-[60%] after:border-b-2 after:rounded after:border-[#DB2A6B]'} ${poppins.className}`} key={link.name}>{link.name}</li>
+                <li className={`list-none text-[8px] ${link.name === 'Home' ? 'text-white' : 'text-[#ABABAB]'} font-light pb-[2px] cursor-pointer ${link.name === 'Home' && 'relative after:absolute after:bottom-[-2px] after:left-0 after:w-[60%] after:border-b-2 after:rounded after:border-[#DB2A6B]'} ${poppins.className}`} key={link.name}>{link.name}</li>
             )
         })
     }
