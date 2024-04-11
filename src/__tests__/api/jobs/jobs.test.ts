@@ -31,6 +31,19 @@ describe('/api/jobs', () => {
   
       expect(res._getStatusCode()).toBe(401);
     });
+
+    it('Should return 400 Bad Request when the method is not allowed', async () => {
+      const { req, res } = createMocks<NextApiRequest, NextApiResponse>({
+        method: 'POST', 
+        headers: {
+          secret: process.env.SECRET_KEY
+        }
+      });
+  
+      await handler(req, res);
+  
+      expect(res._getStatusCode()).toBe(400);
+    });
   
     it('Should return 200 OK when the request is made with a valid secret', async () => {
       const { req, res } = createMocks<NextApiRequest, NextApiResponse>({
@@ -63,7 +76,7 @@ describe('/api/jobs', () => {
       const { req, res } = createMocks<NextApiRequest, NextApiResponse>({
         method: 'GET', 
         query: {
-          level: 'Senior',
+          level: 'SENIOR',
         },
         headers: {
           secret: process.env.SECRET_KEY
@@ -74,6 +87,21 @@ describe('/api/jobs', () => {
   
       expect(res._getStatusCode()).toBe(200);
       expect(res._getData()).toBe(JSON.stringify(jobsMock.filter(job => job.level === 'Senior')));
+    });
+
+    it('Should return 200 OK and all jobs when an invalid level query parameter is provided', async () => {
+
+      const { req, res } = createMocks<NextApiRequest, NextApiResponse>({
+        method: 'GET', 
+        query: { status: 'open' }, 
+        headers: { secret: process.env.SECRET_KEY }
+      });
+
+      await handler(req, res);
+
+      expect(res._getStatusCode()).toBe(200);
+  
+      expect(res._getData()).toBe(JSON.stringify(jobsMock));
     });
   
   

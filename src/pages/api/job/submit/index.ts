@@ -6,27 +6,23 @@ import authMiddleware from "../../middlewares/authVerification";
 
 function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
-    try {
-      const candidate = req.body as Candidate;
+    const candidate = req.body as Candidate;
 
-      const validCandidate = validateCandidate(candidate);
-      
-      if (validCandidate.success === false) {
-        return res
-          .status(HttpStatus.BAD_REQUEST)
-          .json({ message: validCandidate.errors });
-      }
+    const validCandidate = validateCandidate(candidate);
 
-      return res
-        .status(HttpStatus.OK)
-        .json({ message: `Thank you for your application, ${candidate.name}` });
-    } catch (error: any) {
+    if (validCandidate.success === false) {
       return res
         .status(HttpStatus.BAD_REQUEST)
-        .json({ message: error.message });
+        .json({ message: validCandidate.errors });
     }
+
+    return res
+      .status(HttpStatus.OK)
+      .json({ message: `Thank you for your application, ${candidate.name}` });
   } else {
-    return res.status(HttpStatus.BAD_REQUEST).json({ message: "Method not allowed" });
+    return res
+      .status(HttpStatus.BAD_REQUEST)
+      .json({ message: "Method not allowed" });
   }
 }
 

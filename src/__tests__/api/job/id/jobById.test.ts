@@ -37,6 +37,19 @@ describe(('/api/job/:id'), () => {
   
       expect(res._getStatusCode()).toBe(401);
     });
+
+    it('Should return 400 Bad Request when the method is not allowed', async () => {
+      const { req, res } = createMocks<NextApiRequest, NextApiResponse>({
+        method: 'POST', 
+        headers: {
+          secret: process.env.SECRET_KEY
+        }
+      });
+  
+      await handler(req, res);
+  
+      expect(res._getStatusCode()).toBe(400);
+    });
   
     it('Should return 200 OK when the request is made with a valid secret', async () => {
       const { req, res } = createMocks<NextApiRequest, NextApiResponse>({
