@@ -2,6 +2,7 @@ import { poppins } from "@/app/fonts";
 import { navBarLinks } from "@/components/header/utils/navBarLinks";
 import Menu from '@/assets/Menu.svg';
 import Image from "next/image";
+import Container from "../container";
 
 export default function Header() {
 
@@ -16,7 +17,7 @@ export default function Header() {
 
     return (
      <header>
-        <div className="container h-[100px] mx-auto flex items-center">
+        <Container height="h-[100px]">
             <div className="flex w-full justify-between items-center">
                 <h1 className="text-2xl text-white">
                     <span className="text-[#DB2A6B]">Gath</span>
@@ -28,7 +29,7 @@ export default function Header() {
                 <Image src={Menu} alt="Menu" width={15} height={15} className="ml-5"/>
                 </div>
             </div>
-        </div>
+        </Container>
      </header>
     );
 }
