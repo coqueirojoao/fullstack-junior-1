@@ -8,7 +8,7 @@ export default function Header() {
     const getNavBarLinks = () => {
         return navBarLinks.map((link) => {
             return (
-                <li className={`list-none text-[8px] text-white ${poppins.className}`} key={link.name}>{link.name}</li>
+                <li className={`list-none text-[8px] text-white font-light ${poppins.className}`} key={link.name}>{link.name}</li>
             )
         })
     }
@@ -16,7 +16,7 @@ export default function Header() {
 
     return (
      <header>
-        <div className="container h-[120px] mx-auto flex items-center">
+        <div className="container h-[100px] mx-auto flex items-center">
             <div className="flex w-full justify-between items-center">
                 <h1 className="text-2xl text-white">
                     <span className="text-[#DB2A6B]">Gath</span>
@@ -25,7 +25,7 @@ export default function Header() {
                     </span></h1>
                 <div className="flex gap-7 items-center">
                 { getNavBarLinks() }
-                <Image src={Menu} alt="Menu" width={20} height={20} className="ml-14"/>
+                <Image src={Menu} alt="Menu" width={15} height={15} className="ml-5"/>
                 </div>
             </div>
         </div>
