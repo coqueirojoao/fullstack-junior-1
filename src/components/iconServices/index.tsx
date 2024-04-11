@@ -9,8 +9,8 @@ type IconServicesProps = {
 export default function IconServices({ children, icon }: IconServicesProps) {
     return(
         <div className="flex gap-2 items-center">
-            <Image src={icon} alt="Icon" width={30} height={30} />
-            <p className={`${poppins.className} text-[9px] font-semibold text-white`}>{children}</p>
+            <Image src={icon} alt="Icon" className="w-[64px] h-[64px]" />
+            <p className={`${poppins.className} text-lg font-semibold w-28 text-white`}>{children}</p>
         </div>
     )
 }
