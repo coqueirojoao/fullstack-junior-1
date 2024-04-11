@@ -1,8 +1,10 @@
 import { jobs } from "../db/jobs";
+import authMiddleware from "../middlewares/authVerification";
 import { HttpStatus } from "../utils/httpStatus";
 import { NextApiResponse, NextApiRequest } from "next";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+
+function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "GET") {
 
     try {
@@ -22,3 +24,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
   }
 }
+
+export default authMiddleware(handler);
