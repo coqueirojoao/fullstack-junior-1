@@ -8,7 +8,7 @@ function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "GET") {
 
     try {
-      if (req.query) {
+      if (req.query && req.query.level) {
         const formattedQuery = req.query.level?.toString().toLowerCase();
         const response = jobs.filter(
           (job) => job.level.toLowerCase() === formattedQuery
@@ -16,7 +16,8 @@ function handler(req: NextApiRequest, res: NextApiResponse) {
         return res.status(HttpStatus.OK).json(response);
       }
 
-      return res.status(HttpStatus.OK).json(jobs);
+      return res.status(HttpStatus.OK).json(jobs);  
+
     } catch (error: any) {
       return res
         .status(HttpStatus.BAD_REQUEST)
