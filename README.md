@@ -91,6 +91,8 @@ Você pode agora fazer as requisições para os seguintes endpoints:
 
 ### /api/jobs
 
+- Requisição do tipo GET
+
 Exemplo de retorno:
 
 ```json
@@ -124,6 +126,8 @@ Exemplo de retorno:
 
 ### /api/jobs?level=Senior
 
+- Requisição do tipo GET
+
 Exemplo de retorno:
 
 ```json
@@ -138,6 +142,8 @@ Exemplo de retorno:
 ```
 
 ### /api/job/{id}
+
+- Requisição do tipo GET
 
 Exemplo de retorno:
 
