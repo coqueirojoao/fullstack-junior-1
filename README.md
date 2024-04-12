@@ -1,5 +1,13 @@
 # 🚀 Desafio Técnico - Full Stack Junior
 
+## 🔍️ Contato
+
+- Nome: João Pedro Coqueiro de Azevedo
+- Linkedin: https://www.linkedin.com/in/coqueirojoao/
+- Github: https://github.com/coqueirojoao
+- Telefone: 77981665353
+- Email: jaaum.p95@gmail.com
+
 ## 📋 Descrição
 Projeto realizado para fins de teste e aprendizado, focando na proposta elaborada pelo README do processo seletivo da Naranja Labs.
 
@@ -236,12 +244,4 @@ Também foi feito CI/CD para o projeto, utilizando GitHub Actions para validar o
 ```
 https://naranja-labs-fullstack-test.vercel.app/
 ```
-
-## 🔍️ Contato
-
-- Nome: João Pedro Coqueiro de Azevedo
-- Linkedin: https://www.linkedin.com/in/coqueirojoao/
-- Github: https://github.com/coqueirojoao
-- Telefone: 77981665353
-- Email: jaaum.p95@gmail.com
 
