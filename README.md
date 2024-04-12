@@ -17,9 +17,9 @@ O projeto contém uma landing page feita com base no Figma proposto pelo process
 
 ### Tela Principal:
 
-![Tela Principal](image.png)
+![Tela Principal](src/assets//readme/homepage.png)
 
-![Tela Mobile](mobilepage.png)
+![Tela Mobile](src/assets//readme/mobilepage.png)
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -192,7 +192,7 @@ Exemplo de retorno:
 
 Caso prefira, você também pode utilizar o swagger para fazer as requisições e consultar a documentação da API
 
-![Swagger Documento](image-4.png)
+![Swagger Documento](src/assets//readme/swaggerimg.png)
 
 ```
 https://app.swaggerhub.com/apis/JAAUMP95/naranja-labs_test/1.0.0
@@ -215,7 +215,7 @@ npm run test
 npm run test:coverage
 ```
 
-![Testes Unitários](image-1.png)
+![Testes Unitários](src/assets//readme/unitcoverage.png)
 
 ### 🔩 Testes E2E (Front-End)
 
@@ -231,13 +231,13 @@ npm run cypress:run
 npm run cypress:open
 ```
 
-![E2E Testes](image-2.png)
+![E2E Testes](src/assets/readme/e2ecoverage.png)
 
 ## 🧱 CI/CD
 
 Também foi feito CI/CD para o projeto, utilizando GitHub Actions para validar os testes e o Vercel para fazer o deploy.
 
-![CI/CD](image-3.png)
+![CI/CD](src/assets//readme/cicd.png)
 
 - Endereço para o deploy:
 
